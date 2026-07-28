@@ -16,4 +16,4 @@ Quase todo pattern do catálogo GoF é a aplicação concreta de um destes princ
 
 ---
 
-**Status de cada tópico → [mapa no README principal](../../README.md).** O mapa é a única fonte de verdade do que já foi escrito; esta página não repete essa informação para não sair de sincronia.
+**Status de cada tópico → [mapa no README principal](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md).** O mapa é a única fonte de verdade do que já foi escrito; esta página não repete essa informação para não sair de sincronia.

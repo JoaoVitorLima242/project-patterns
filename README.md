@@ -10,9 +10,9 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 
 | Seção | O que é |
 | --- | --- |
-| **[Princípios](./docs/principios/)** | Os critérios que dizem se um pattern faz sentido ali. Comece por aqui. |
-| **[Design Patterns](./docs/patterns/)** | Os 23 patterns do *Gang of Four*, em três famílias. |
-| **[Arquitetura](./docs/arquitetura/)** | Um nível acima: fronteiras do sistema e direção de dependências. |
+| **[Princípios](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios)** | Os critérios que dizem se um pattern faz sentido ali. Comece por aqui. |
+| **[Design Patterns](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns)** | Os 23 patterns do *Gang of Four*, em três famílias. |
+| **[Arquitetura](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/arquitetura)** | Um nível acima: fronteiras do sistema e direção de dependências. |
 
 ---
 
@@ -96,7 +96,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 
 ## Contribuindo
 
-Sugestões, correções e novos tópicos são bem-vindos — o passo a passo está em **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
+Sugestões, correções e novos tópicos são bem-vindos — o passo a passo está em **[CONTRIBUTING.md](https://github.com/JoaoVitorLima242/project-patterns/blob/main/CONTRIBUTING.md)**.
 
 ## Rodando os exemplos (opcional)
 

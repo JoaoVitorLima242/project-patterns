@@ -73,7 +73,9 @@ A ordem importa: mapear antes de testar, testar antes de cortar.
 
 O exemplo é o relatório de faturamento: ele lista as transações com o imposto de cada uma, soma quanto foi de ICMS e quanto foi de ISS, ranqueia as maiores receitas e fecha com o faturamento bruto e líquido.
 
-Cada arquivo traz **as duas versões** — a monolítica e a separada — e o `main` compara os dois relatórios gerados. Eles saem idênticos, caractere por caractere: é o passo 2 acontecendo dentro do próprio exemplo, provando que o corte não mudou o comportamento.
+O arquivo traz **as duas versões** — a monolítica e a separada — e o `main` compara os dois relatórios gerados. Eles saem idênticos, caractere por caractere: é o passo 2 acontecendo dentro do próprio exemplo, provando que o corte não mudou o comportamento.
+
+O código abaixo está em TypeScript. Só os trechos que importam para o contraste — o arquivo completo está linkado no fim.
 
 O corte ficou assim:
 
@@ -117,14 +119,13 @@ Faturamento líquido  R$  26.106,00
 ✓ monolítico e separado produziram um relatório idêntico
 ```
 
-As três linguagens imprimem exatamente este texto.
+As três implementações imprimem exatamente este texto.
 
 </details>
 
-<details>
-<summary><b>TypeScript</b></summary>
+### Antes — tudo em um método
 
-**Antes** — cálculo, agregação, ordenação e formatação no mesmo método:
+Cálculo fiscal, agregação, ordenação e formatação convivem no mesmo lugar:
 
 ```ts
 gerar(): string {
@@ -154,7 +155,7 @@ gerar(): string {
 }
 ```
 
-**Depois** — cada lógica no seu lugar:
+### Depois — cada lógica no seu lugar
 
 ```ts
 // Utilitário matemático, sem regra de negócio: função, não classe.
@@ -182,145 +183,15 @@ class RelatorioFaturamento {
 }
 ```
 
-▸ [Exemplo completo e executável](./typescript/main.ts)
+▸ [Exemplo completo e executável](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/principios/srp/typescript/main.ts)
 
-</details>
-
-<details>
-<summary><b>Python</b></summary>
-
-**Antes** — cálculo, agregação, ordenação e formatação no mesmo método:
-
-```python
-def gerar(self) -> str:
-    for i, venda in enumerate(self._vendas, start=1):
-        bruto += venda.valor
-
-        if venda.tipo == "produto":
-            aliquota = 17
-            if venda.uf == "SP":
-                aliquota = 18
-            elif venda.uf == "RJ":
-                aliquota = 20
-            elif venda.uf == "MG":
-                aliquota = 18
-
-            base = venda.valor
-            if venda.valor > 5000:
-                base = venda.valor - (venda.valor * 20) / 100
-
-            imposto = (base * aliquota) / 100
-            total_icms += imposto
-        else:
-            ...  # o mesmo bloco de novo, agora com as alíquotas de ISS
-
-        linhas.append(f"  #{i}  {venda.descricao:<20} ...")
-
-    # e ainda seguem, aqui dentro: somatórios, ranking e rodapé
-```
-
-**Depois** — cada lógica no seu lugar:
-
-```python
-def percentual_de(valor: float, percentual: float) -> float:
-    """Utilitário matemático, sem regra de negócio: função, não classe."""
-    return (valor * percentual) / 100
-
-
-class CalculoIcms:
-    """Lógica própria e complexidade própria: classe."""
-
-    def calcular(self, venda: Venda) -> float:
-        aliquota = ALIQUOTAS_ICMS.get(venda.uf, ALIQUOTA_ICMS_PADRAO)
-        base = venda.valor
-        if venda.valor > LIMITE_REDUCAO_BASE:
-            base = venda.valor - percentual_de(venda.valor, PERCENTUAL_REDUCAO_BASE)
-        return percentual_de(base, aliquota)
-
-
-class RelatorioFaturamento:
-    """Orquestra: não calcula imposto nem monta texto."""
-
-    def gerar(self) -> str:
-        return RelatorioFormatter().formatar(ResumoFaturamento(self._vendas))
-```
-
-▸ [Exemplo completo e executável](./python/main.py)
-
-</details>
-
-<details>
-<summary><b>Java</b></summary>
-
-**Antes** — cálculo, agregação, ordenação e formatação no mesmo método:
-
-```java
-String gerar() {
-    for (int i = 0; i < vendas.size(); i++) {
-        Venda venda = vendas.get(i);
-        bruto += venda.valor();
-
-        if (venda.tipo().equals("produto")) {
-            int aliquota = 17;
-            if (venda.uf().equals("SP")) aliquota = 18;
-            else if (venda.uf().equals("RJ")) aliquota = 20;
-            else if (venda.uf().equals("MG")) aliquota = 18;
-
-            double base = venda.valor();
-            if (venda.valor() > 5000) base = venda.valor() - (venda.valor() * 20) / 100;
-
-            imposto = (base * aliquota) / 100;
-            totalIcms += imposto;
-        } else {
-            // o mesmo bloco de novo, agora com as alíquotas de ISS por município
-        }
-
-        linhas.add(String.format("  #%d  %-20s ...", i + 1, venda.descricao()));
-    }
-
-    // e ainda seguem, aqui dentro: somatórios, ranking e rodapé
-}
-```
-
-**Depois** — cada lógica no seu lugar:
-
-```java
-// Em Java não existe função solta: o equivalente do utilitário é um método
-// estático. O ponto se mantém — não é classe com estado nem com regra de negócio.
-final class Calculos {
-    static double percentualDe(double valor, double percentual) {
-        return (valor * percentual) / 100;
-    }
-}
-
-// Lógica própria e complexidade própria: classe.
-class CalculoIcms {
-    double calcular(Venda venda) {
-        int aliquota = ALIQUOTAS.getOrDefault(venda.uf(), ALIQUOTA_PADRAO);
-        double base = venda.valor() > LIMITE_REDUCAO_BASE
-                ? venda.valor() - Calculos.percentualDe(venda.valor(), PERCENTUAL_REDUCAO_BASE)
-                : venda.valor();
-        return Calculos.percentualDe(base, aliquota);
-    }
-}
-
-// Orquestra: não calcula imposto nem monta texto.
-class RelatorioFaturamento {
-    String gerar() {
-        return new RelatorioFormatter().formatar(new ResumoFaturamento(vendas));
-    }
-}
-```
-
-▸ [Exemplo completo e executável](./java/Main.java)
-
-</details>
+> **Em outras linguagens:** o mesmo exemplo está implementado em [Python](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/principios/srp/python/main.py) e [Java](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/principios/srp/java/Main.java), com saída idêntica à do TypeScript. Ficaram fora da página para não alongá-la — mas rodam do mesmo jeito, e valem a olhada se você quiser comparar como cada linguagem resolve a separação.
 
 > As alíquotas são simplificadas para o exemplo. Não é referência fiscal.
 
 ## Princípios relacionados
 
-> Ainda sem link — estes tópicos estão como 🔜 ou 🚧 no [mapa](../../../README.md).
+> Ainda sem link — estes tópicos estão como 🔜 ou 🚧 no [mapa](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md).
 
 <!-- FALTA -->
 

@@ -26,7 +26,7 @@ Este documento é o passo a passo para adicionar um tópico ao repositório. Ser
 
 5. **Rode os três** e confira que a saída faz sentido. Este passo é o motivo de os exemplos existirem como arquivos: é o que impede o repositório de publicar código que não compila.
 
-6. **Atualize o mapa** no [README.md](./README.md): troque o `🔜` por `✅` e transforme o nome do tópico em link.
+6. **Atualize o mapa** no [README.md](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md): troque o `🔜` por `✅` e transforme o nome do tópico em link.
 
 7. **Procure menções ao tópico** nas páginas já escritas — na seção "Patterns relacionados" elas ficam como texto puro enquanto o alvo não existe. Agora viram link.
 
@@ -37,6 +37,18 @@ Este documento é o passo a passo para adicionar um tópico ao repositório. Ser
 - **Pastas em inglês e `kebab-case`**: `strategy`, `abstract-factory`, `clean-architecture`. Casa com a literatura e com o que as pessoas pesquisam.
 - **Prosa em português.** Termos técnicos consagrados ficam no original — não traduza "Strategy", "Observer", "Ports & Adapters".
 - **Página sempre em `README.md`**, para o GitHub renderizar ao abrir a pasta.
+
+### Links: URL completa, nunca caminho relativo
+
+Todo link entre páginas e para arquivos de código usa a URL completa do GitHub:
+
+```markdown
+[Exemplo completo](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/principios/srp/typescript/main.ts)
+```
+
+Não `./typescript/main.ts` nem `../../README.md`. O motivo é que o Markdown daqui circula fora do GitHub — copiado para outro lugar, lido num agregador, colado numa conversa — e caminho relativo quebra em todos esses casos.
+
+Use `/blob/main/` para arquivos e `/tree/main/` para pastas. Como os links apontam para `main`, um arquivo criado numa branch só resolve depois do merge — o que é esperado.
 
 ### Estrutura da página
 
