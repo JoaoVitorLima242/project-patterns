@@ -16,8 +16,8 @@ Pattern é ferramenta, não meta. Código não fica melhor por conter mais patte
 
 Por isso toda página aqui tem uma seção **Quando NÃO usar**. Ela costuma ser mais útil que a implementação.
 
-Vale ler [Princípios](../principios/) antes: quase todo pattern é a aplicação concreta de um princípio mais geral.
+Vale ler [Princípios](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios) antes: quase todo pattern é a aplicação concreta de um princípio mais geral.
 
 ---
 
-**Status de cada pattern → [mapa no README principal](../../README.md).** O mapa é a única fonte de verdade do que já foi escrito; esta página não repete essa informação para não sair de sincronia.
+**Status de cada pattern → [mapa no README principal](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md).** O mapa é a única fonte de verdade do que já foi escrito; esta página não repete essa informação para não sair de sincronia.

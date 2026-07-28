@@ -10,9 +10,9 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 
 | Seção | O que é |
 | --- | --- |
-| **[Princípios](./docs/principios/)** | Os critérios que dizem se um pattern faz sentido ali. Comece por aqui. |
-| **[Design Patterns](./docs/patterns/)** | Os 23 patterns do *Gang of Four*, em três famílias. |
-| **[Arquitetura](./docs/arquitetura/)** | Um nível acima: fronteiras do sistema e direção de dependências. |
+| **[Princípios](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios)** | Os critérios que dizem se um pattern faz sentido ali. Comece por aqui. |
+| **[Design Patterns](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns)** | Os 23 patterns do *Gang of Four*, em três famílias. |
+| **[Arquitetura](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/arquitetura)** | Um nível acima: fronteiras do sistema e direção de dependências. |
 
 ---
 
@@ -24,7 +24,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 
 | Tópico | Status | Ideia central |
 | --- | :---: | --- |
-| Single Responsibility (SRP) | 🚧 | Uma classe deve ter um só motivo para mudar |
+| [**Single Responsibility (SRP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/srp) | ✅ | Uma classe deve ter uma única responsabilidade |
 | Open/Closed (OCP) | 🚧 | Aberto para extensão, fechado para modificação |
 | Liskov Substitution (LSP) | 🚧 | Subtipo tem que poder substituir o tipo base sem surpresa |
 | Interface Segregation (ISP) | 🚧 | Interface pequena e específica em vez de uma que serve a todos |
@@ -96,7 +96,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 
 ## Contribuindo
 
-Sugestões, correções e novos tópicos são bem-vindos — o passo a passo está em **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
+Sugestões, correções e novos tópicos são bem-vindos — o passo a passo está em **[CONTRIBUTING.md](https://github.com/JoaoVitorLima242/project-patterns/blob/main/CONTRIBUTING.md)**.
 
 ## Rodando os exemplos (opcional)
 

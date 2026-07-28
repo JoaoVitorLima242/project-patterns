@@ -26,17 +26,22 @@ java    docs/patterns/<família>/<pattern>/java/Main.java       # JDK 17+
 
 A verificação de um tópico é: rodar os três e conferir que a saída bate entre eles (o Java difere só na vírgula decimal, por locale pt-BR).
 
-Para checar links relativos quebrados em todos os `.md` — os 4 placeholders dentro de `templates/pattern.md` são esperados e não contam:
+Como os links são URLs completas do GitHub (ver adiante), o checador resolve cada uma contra o filesystem local e denuncia qualquer link relativo remanescente, que viola a convenção. Os placeholders `<seção>/<tópico>` do `templates/pattern.md` são esperados:
 
 ```bash
 python3 - <<'EOF'
 import re, pathlib
+BASE = "https://github.com/JoaoVitorLima242/project-patterns"
 for md in sorted(pathlib.Path('.').rglob('*.md')):
     if '.git/' in str(md): continue
     for _, link in re.findall(r'\[([^\]]+)\]\(([^)]+)\)', md.read_text()):
-        if link.startswith(('http','#','mailto:')): continue
-        if not (md.parent / link.split('#')[0]).resolve().exists():
-            print(f"BROKEN  {md}  ->  {link}")
+        if link.startswith(BASE):
+            caminho = re.sub(rf'^{re.escape(BASE)}/(blob|tree)/main/', '', link)
+            if '<' in caminho: continue          # placeholder do template
+            if not pathlib.Path(caminho).exists():
+                print(f"NAO EXISTE   {md}  ->  {caminho}")
+        elif not link.startswith(('http', '#', 'mailto:')):
+            print(f"RELATIVO     {md}  ->  {link}")
 EOF
 ```
 
@@ -63,6 +68,12 @@ Cada uma destas já causou um erro real:
 ### O mapa no README é a única fonte de verdade do status
 
 Os `README.md` de seção descrevem a categoria e apontam de volta para o mapa — de propósito, não repetem status. Ao escrever um tópico, atualize `🔜` → `✅` **apenas** no README raiz. Não adicione listas de status nos índices de seção.
+
+### Links são URLs completas do GitHub, nunca relativos
+
+`https://github.com/JoaoVitorLima242/project-patterns/blob/main/<caminho>` para arquivos, `/tree/main/` para pastas. Nada de `./typescript/main.ts` ou `../../README.md` — o Markdown daqui circula fora do GitHub e caminho relativo quebra.
+
+Consequência: um arquivo criado numa branch só resolve depois do merge em `main`. Isso é esperado, não é link quebrado.
 
 ### Links para tópicos `🔜` ficam como texto puro
 

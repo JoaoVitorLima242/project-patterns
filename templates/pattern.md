@@ -63,7 +63,11 @@ classDiagram
 
      Deixe INLINE apenas o núcleo do pattern (~20–30 linhas). O setup, o main
      e os prints ficam só no arquivo executável — assim o trecho daqui não
-     vira uma cópia inteira que diverge do arquivo com o tempo. -->
+     vira uma cópia inteira que diverge do arquivo com o tempo.
+
+     Os links são URLs COMPLETAS do GitHub, não caminhos relativos: a página
+     precisa funcionar também fora do GitHub. Troque <seção>/<tópico> pelo
+     caminho real. -->
 
 <details>
 <summary><b>TypeScript</b></summary>
@@ -72,7 +76,7 @@ classDiagram
 // núcleo do pattern
 ```
 
-▸ [Exemplo completo e executável](./typescript/main.ts)
+▸ [Exemplo completo e executável](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/<seção>/<tópico>/typescript/main.ts)
 
 </details>
 
@@ -83,7 +87,7 @@ classDiagram
 # núcleo do pattern
 ```
 
-▸ [Exemplo completo e executável](./python/main.py)
+▸ [Exemplo completo e executável](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/<seção>/<tópico>/python/main.py)
 
 </details>
 
@@ -94,7 +98,7 @@ classDiagram
 // núcleo do pattern
 ```
 
-▸ [Exemplo completo e executável](./java/Main.java)
+▸ [Exemplo completo e executável](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/<seção>/<tópico>/java/Main.java)
 
 </details>
 
@@ -126,7 +130,7 @@ classDiagram
 <!-- Links cruzados. Diga a DIFERENÇA, não só o nome — é o que resolve a
      confusão entre patterns de estrutura parecida. -->
 
-- **[Nome](../caminho/)** — em que difere deste.
+- **[Nome](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/<seção>/<tópico>)** — em que difere deste.
 
 ## Referências
 
