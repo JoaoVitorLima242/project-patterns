@@ -191,7 +191,9 @@ class RelatorioFaturamento {
 
 ## Princípios relacionados
 
-> Ainda sem link — estes tópicos estão como 🔜 ou 🚧 no [mapa](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md).
+- **[Open/Closed (OCP)](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/ocp)** — o SRP decide *o que* vira uma unidade separada; o OCP decide *como* uma unidade nova entra sem editar as antigas.
+
+> Os demais ainda sem link — estão como 🔜 ou 🚧 no [mapa](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md).
 
 <!-- FALTA -->
 
