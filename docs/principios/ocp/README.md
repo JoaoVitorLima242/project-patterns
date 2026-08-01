@@ -141,8 +141,6 @@ class EnviarEmail implements UseCase<{ userId: string }, Email> {
 
 `RegraEnvio` e `ConteudoEmail` continuam sendo pontos de extensão — mas agora são funções puras sobre um `user` que já está em memória. Uma busca, não duas.
 
-<!-- FALTA: qual das três você defende como padrão, e em que situação abriria exceção. -->
-
 ## Meu critério: o caminho inverso
 
 O princípio, como se costuma ensinar, pede que você deixe a classe fechada para alteração e aberta para extensão **desde o começo**. Isso exige prever o futuro da classe — saber, antes de precisar, por onde ela vai variar.
@@ -163,32 +161,6 @@ Só que esse tipo de complexidade tem que ser planejado, e **aí o problema deix
 
 O critério da seção anterior vale onde OCP é a pergunta certa.
 
-## Quando NÃO usar
-
-- **O método é simples e tem um caso só.** Estender custa mais do que resolver direto, e o ponto de extensão fica sem uso.
-- **Você não tem evidência de variação, só suspeita.** Abrir para extensão antes de ver o reuso é prever o futuro — se errar, sobra indireção que não serve a nada.
-- **Manter tudo estendido está saindo mais caro.** Tem momento em que um método maior, com a lógica dele, é mais barato de manter do que a lógica espalhada entre extensões.
-- **Existe consumidor externo.** Não é que OCP esteja errado ali — é que a pergunta virou outra (acima).
-
-## Trade-offs
-
-| Ganha | Paga |
-| --- | --- |
-| Comportamento novo é código novo — não se mexe no que já funciona | Precisa acertar por onde a classe varia; ponto de extensão no eixo errado é pior que nenhum |
-| Cada extensão é testável isolada | Mais arquivos e mais indireção para ler um fluxo inteiro |
-| A classe original para de crescer a cada pedido | Contrato enxuto esconde dado já buscado — e gera requisição duplicada |
-
 ## Princípios relacionados
 
 - **[Single Responsibility (SRP)](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/srp)** — o SRP decide *o que* vira uma unidade separada; o OCP decide *como* uma unidade nova entra sem editar as antigas.
-
-> Ainda sem link — estes tópicos estão como 🔜 ou 🚧 no [mapa](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md).
-
-- **Dependency Inversion (DIP)** — é o que sustenta a injeção usada aqui.
-- **Composição vs. Herança** — a escolha de mecanismo desta página, discutida por si só.
-- **DRY, KISS, YAGNI** — o YAGNI é o contrapeso direto do "abra para extensão desde já".
-- **Strategy** — o pattern que formaliza o ponto de extensão injetado.
-
-## Referências
-
-<!-- FALTA -->
