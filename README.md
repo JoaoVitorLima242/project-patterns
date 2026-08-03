@@ -28,7 +28,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | [**Open/Closed (OCP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/ocp) | ✅ | Aberto para extensão, fechado para modificação |
 | [**Liskov Substitution (LSP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/lsp) | ✅ | Subtipo tem que poder substituir o tipo base sem surpresa |
 | [**Interface Segregation (ISP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/isp) | ✅ | Interface pequena e específica em vez de uma que serve a todos |
-| Dependency Inversion (DIP) | 🚧 | Depender de abstrações, não de implementações |
+| [**Dependency Inversion (DIP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dip) | ✅ | Depender de abstrações, não de implementações |
 | Composição vs. Herança | 🔜 | A decisão de estrutura mais consequente do dia a dia |
 | Acoplamento e Coesão | 🔜 | O vocabulário para dizer *por que* um design está ruim |
 | DRY, KISS, YAGNI | 🔜 | Os três que mais se aplicam errado |
