@@ -92,6 +92,18 @@ Se o contrato fosse uma classe abstrata com código dentro, aí sim voltariam os
 
 E tem um custo que só aparece depois: **a vaga de herança é uma só.** Se você gastar o `extends` para ganhar uma capacidade, ela acabou — e quando o contrato de caso de uso chegar, não sobra lugar para ele.
 
+## O custo da herança é uma afirmação
+
+Herdar tem um custo, e ele não é técnico: ao escrever `extends`, você está definindo que aquela classe **é como a classe pai**. Quando a gente herda alguma coisa, o que a gente quer dizer é que aquela classe **faz parte daquele conjunto**.
+
+E afirmação de conjunto cobra. Como a página do [LSP](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/lsp) registra, tudo que é demonstrável sobre o pai passa a valer para o filho — e essa promessa vale para a classe inteira, para todo mundo que enxergar aquele tipo, para sempre.
+
+Compor é bem diferente. Quando a gente compõe, **não define nada de forma geral**: só pega algo emprestado. O caso de uso pega emprestado o envio de e-mail e usa ali dentro. Ele não disse nada sobre o que ele é, não entrou em conjunto nenhum, não assumiu obrigação com ninguém.
+
+> **Herança é uma afirmação. Composição é um empréstimo.**
+
+Por isso a conta não é a mesma. Emprestar não obriga a nada: se o objeto emprestado mudar de comportamento amanhã, quem compôs decide o que fazer com isso. Quem afirmou está preso à afirmação.
+
 ## Como fica
 
 Um caso de uso de criar conta que precisa mandar e-mail de boas-vindas.
