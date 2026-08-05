@@ -4,13 +4,17 @@ Coesão é o que faz os membros de uma classe estarem juntos; acoplamento é o q
 
 ---
 
-## Os termos são novos; a prática, não
+## A prática vem antes do fundamento
 
-Antes de definir qualquer coisa, vale separar duas coisas que costumam vir juntas e não são a mesma: **conhecer o termo** e **fazer o que ele descreve**.
+Boa parte do que a gente faz todo dia é a aplicação de um princípio que não sabemos nomear. Quem estrutura sistema com classe de responsabilidade única e dependência externa reduzida ao mínimo **já aplica** coesão e acoplamento — mesmo sem nunca ter usado as palavras.
 
-Quem já estrutura sistema com classe de responsabilidade única e dependência externa reduzida ao mínimo **já aplica** acoplamento e coesão — mesmo sem nunca ter usado as palavras. Não tem técnica nova aqui.
+Fazer sem saber o termo não é problema: o código sai certo do mesmo jeito. Mas ficar só na prática cobra depois.
 
-O que os termos acrescentam é **vocabulário**. Num code review, "essa classe está com coesão baixa" e "isso é acoplamento de controle" dizem *o que* está errado e *onde*; "não gostei" não diz. É a diferença entre um apontamento que o autor consegue agir em cima e um que ele só consegue discordar.
+Sem o conceito, o que se tem é **hábito** — você repete o que funcionou porque funcionou. Com o fundamento, você sabe *por que* funcionou, e é isso que permite decidir num caso que não se parece com nenhum dos anteriores, reconhecer quando aquilo não se aplica, e discutir a decisão com alguém que discorda dela.
+
+Ou seja: não tem técnica nova aqui, e ainda assim vale entender. O que muda não é o que você escreve, é o que você **sabe** sobre o que escreve.
+
+Uma das consequências aparece no review, e é a mais visível: "essa classe está com coesão baixa" e "isso é acoplamento de controle" dizem *o que* está errado e *onde*; "não gostei" não diz. É a diferença entre um apontamento que o autor consegue agir em cima e um que ele só consegue discordar. Mas o review é só onde o entendimento fica aparente — o ganho é do programador, antes de ser da equipe.
 
 ## Coesão: o que está junto pertence junto?
 
@@ -103,7 +107,7 @@ Aceitar isso é o que impede a régua de virar burocracia.
 
 | Ganha | Paga |
 | --- | --- |
-| Vocabulário para apontar o problema em vez de opinar sobre ele | Processo: time alinhado e supervisão técnica constante |
+| Entender o fundamento do que já se faz por hábito — e conseguir apontar o problema em vez de opinar sobre ele | Processo: time alinhado e supervisão técnica constante |
 | Classe mais fácil de testar, porque tem menos caminhos | Mais classes, mais arquivos, mais indireção |
 | Trocar implementação sem tocar em quem usa | Contrato a mais para manter em cada troca prevista |
 | Critério para decidir onde quebrar uma responsabilidade grande | Nenhum limite objetivo: a decisão continua sendo julgamento |
