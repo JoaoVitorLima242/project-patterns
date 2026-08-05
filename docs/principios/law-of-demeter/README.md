@@ -76,22 +76,24 @@ O sinal de que a delegação está errada é quando ela não tem nome de negóci
 
 ## Na prática
 
-<!-- SUA OPINIÃO — a seção que carrega a página, desenvolvida na conversa.
-     O que ainda precisa de você:
+Este problema aparece pouco no meu dia a dia, e por uma escolha que vem antes dele: **eu não uso entidade como classe.** Em vez de `class User { ... }` com métodos, prefiro declarar um `type` para os objetos que circulam pelo sistema. Sem instância de classe, não existe `user.getAddress()` — não há comportamento a encadear, porque não há objeto no sentido que a lei assume.
 
-     - Você vê isso no dia a dia? Onde a cadeia de gets mais aparece nos
-       projetos em que você trabalha — domínio, resposta de API, ORM?
-     - A lei te parece aplicável de verdade, ou é daquelas que soa bem e não
-       sobrevive ao prazo?
-     - Onde você aceitaria o encadeamento sem reclamar? -->
+Isso desloca a pergunta. "Como eu chego no endereço" deixa de ser um passeio pelo grafo de objetos e vira uma decisão sobre **onde buscar o dado**: se eu preciso do endereço, eu busco a entidade de endereço pelo id do usuário, direto no data store. Em projeto com banco relacional isso funciona bem — as tabelas já estão separadas, e cada consulta traz exatamente o que aquele trecho precisa, sem atravessar ninguém para chegar lá.
+
+O caso muda com **NoSQL**. Lá o documento chega aninhado: `user.location.city` está dentro do mesmo registro, e a cadeia existe no *dado*, não no código — não adianta reorganizar as chamadas, porque a estrutura veio assim do banco.
+
+A resposta aí é o **mapper**. Em vez de deixar o documento cru circular pelo sistema, a classe recebe esse documento e monta a estrutura na forma que o código vai usar. É onde a Lei de Demeter é aplicada de verdade: **na fronteira, uma vez** — em vez de espalhar `user.location.city` por todos os lugares que precisam da cidade.
+
+Repare que em nenhum dos dois casos a saída foi criar métodos de delegação. Foi decidir de onde o dado vem: da consulta certa, no relacional; do mapeamento na borda, no NoSQL.
 
 ## Trade-offs
 
-<!-- Preencher junto com a seção acima. -->
-
 | Ganha | Paga |
 | --- | --- |
-|  |  |
+| A cadeia de acesso não se espalha: o formato do dado é resolvido num lugar só | Um mapper a mais entre o banco e o código, que precisa acompanhar o schema |
+| `type` em vez de classe elimina o encadeamento de comportamento na origem | Sem entidade rica, a regra de negócio tem que morar em outro lugar — e alguém precisa decidir onde |
+| Buscar o dado onde ele mora deixa cada trecho com exatamente o que precisa | No relacional, mais consultas — e o cuidado com N+1 passa a ser seu |
+| O documento aninhado do NoSQL não vaza para o resto do sistema | O mapeamento custa em cada leitura, e some com parte da informação se for feito às pressas |
 
 ## Princípios relacionados
 
