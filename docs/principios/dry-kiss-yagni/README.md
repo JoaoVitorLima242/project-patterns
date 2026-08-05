@@ -1,11 +1,12 @@
 # DRY, KISS, YAGNI
 
-<!-- A frase de abertura, no seu jeito de dizer. Uma linha: o que os três têm
-     em comum, ou por que estão na mesma página. -->
+Três princípios práticos que ajudam a manter o código organizado e simples de implementar.
 
 ---
 
-Três siglas que quase todo mundo repete e quase ninguém leu na fonte. Elas não vieram do mesmo lugar nem no mesmo ano: uma nasceu num livro sobre ofício, outra numa fábrica de aviões militares, a terceira dentro do Extreme Programming. E cada uma é mais estreita do que a fama sugere — é dessa diferença entre a formulação original e o uso popular que vem a maior parte dos problemas.
+Vale conhecer os três porque eles rendem rápido. Não pedem estrutura nova, não dependem de refactor grande e não exigem que o projeto esteja num formato específico: agem na decisão pequena do dia a dia — extrair ou não aquele método, construir ou não aquela camada, resolver do jeito direto ou do jeito esperto.
+
+E conhecer o que cada um diz **de verdade** muda o resultado. Os três vieram de lugares diferentes — um livro sobre o ofício, uma fábrica de aviões militares e o Extreme Programming — e cada um é mais específico do que a versão que circula por aí. É essa precisão que transforma as três siglas em critério de decisão, em vez de frase de efeito repetida em code review.
 
 ## DRY — Don't Repeat Yourself
 
