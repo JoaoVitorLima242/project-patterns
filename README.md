@@ -31,7 +31,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | [**Dependency Inversion (DIP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dip) | ✅ | Depender de abstrações, não de implementações |
 | [**Composição vs. Herança**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/composition-vs-inheritance) | ✅ | A decisão de estrutura mais consequente do dia a dia |
 | [**Acoplamento e Coesão**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/coupling-and-cohesion) | ✅ | O vocabulário para dizer *por que* um design está ruim |
-| DRY, KISS, YAGNI | 🚧 | Os três que mais se aplicam errado |
+| [**DRY, KISS, YAGNI**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dry-kiss-yagni) | 🚧 | Os três que mais se aplicam errado |
 | Lei de Demeter | 🚧 | Quanto um objeto deve saber sobre os vizinhos dos vizinhos |
 
 ### Design Patterns — Criacionais
