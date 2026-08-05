@@ -1,6 +1,6 @@
 # Lei de Demeter
 
-<!-- A frase de abertura, no seu jeito de dizer. Uma linha: o que a lei te dá. -->
+Quanto um objeto precisa saber sobre os vizinhos dos vizinhos para fazer o próprio trabalho.
 
 ---
 
