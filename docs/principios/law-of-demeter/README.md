@@ -80,20 +80,21 @@ Este problema aparece pouco no meu dia a dia, e por uma escolha que vem antes de
 
 Isso desloca a pergunta. "Como eu chego no endereço" deixa de ser um passeio pelo grafo de objetos e vira uma decisão sobre **onde buscar o dado**: se eu preciso do endereço, eu busco a entidade de endereço pelo id do usuário, direto no data store. Em projeto com banco relacional isso funciona bem — as tabelas já estão separadas, e cada consulta traz exatamente o que aquele trecho precisa, sem atravessar ninguém para chegar lá.
 
-O caso muda com **NoSQL**. Lá o documento chega aninhado: `user.location.city` está dentro do mesmo registro, e a cadeia existe no *dado*, não no código — não adianta reorganizar as chamadas, porque a estrutura veio assim do banco.
+O caso muda com **NoSQL** ou **cache**. Lá o documento chega aninhado: `user.location.city` está dentro do mesmo registro, e a cadeia existe no *dado*, não no código — não adianta reorganizar as chamadas, porque a estrutura veio assim do banco.
 
 A resposta aí é o **mapper**. Em vez de deixar o documento cru circular pelo sistema, a classe recebe esse documento e monta a estrutura na forma que o código vai usar. É onde a Lei de Demeter é aplicada de verdade: **na fronteira, uma vez** — em vez de espalhar `user.location.city` por todos os lugares que precisam da cidade.
 
-Repare que em nenhum dos dois casos a saída foi criar métodos de delegação. Foi decidir de onde o dado vem: da consulta certa, no relacional; do mapeamento na borda, no NoSQL.
+Repare que em nenhum dos dois casos a saída foi criar métodos de delegação. Foi decidir de onde o dado vem: da consulta certa, no relacional; do mapeamento na borda, quando o dado chega aninhado.
 
-## Trade-offs
+## Conclusão
 
-| Ganha | Paga |
-| --- | --- |
-| A cadeia de acesso não se espalha: o formato do dado é resolvido num lugar só | Um mapper a mais entre o banco e o código, que precisa acompanhar o schema |
-| `type` em vez de classe elimina o encadeamento de comportamento na origem | Sem entidade rica, a regra de negócio tem que morar em outro lugar — e alguém precisa decidir onde |
-| Buscar o dado onde ele mora deixa cada trecho com exatamente o que precisa | No relacional, mais consultas — e o cuidado com N+1 passa a ser seu |
-| O documento aninhado do NoSQL não vaza para o resto do sistema | O mapeamento custa em cada leitura, e some com parte da informação se for feito às pressas |
+A Lei de Demeter é fácil de verificar e por isso costuma ser aplicada da forma mais rasa possível: contar pontos na linha e pedir um método a mais para cada salto. Feita assim, ela troca um acoplamento visível por delegação espalhada e não melhora nada.
+
+O que ela realmente aponta é uma decisão que foi tomada **antes** daquela linha: como o dado foi modelado e de onde ele veio. A cadeia comprida é sintoma — o remédio quase nunca está na linha em que ela aparece.
+
+Por isso vale tratá-la como o autor a tratava, uma heurística de estilo, e usá-la como pergunta em vez de regra: *por que este trecho precisou atravessar três objetos para chegar no que queria?* Às vezes a resposta é que a decisão está no lugar errado, e o caminho é o *Tell, Don't Ask*. Às vezes é que o dado foi buscado no lugar errado, e o caminho é a consulta certa ou um mapper na fronteira.
+
+Nos dois casos, o resultado é o mesmo: a cadeia deixa de existir porque deixou de ser necessária — não porque foi escondida atrás de métodos que só repassam.
 
 ## Princípios relacionados
 
