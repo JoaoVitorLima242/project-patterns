@@ -4,7 +4,7 @@
 
 ---
 
-É a regra mais fácil de verificar de toda esta seção: dá para vê-la sendo violada no diff, sem entender o domínio, sem ler o resto da classe. Sempre que uma linha encadeia chamadas para atravessar objetos — `a.getB().getC().fazer()` —, ela está avisando que aquele código sabe demais sobre a estrutura de coisas que não são dele.
+É a regra mais fácil de verificar de toda esta seção: dá para vê-la sendo violada no diff, sem entender o domínio, sem ler o resto da classe. Sempre que uma linha encadeia acessos para atravessar objetos — `a.b.c.fazer()` —, ela está avisando que aquele código sabe demais sobre a estrutura de coisas que não são dele.
 
 E o motivo de conhecer a lei é esse: ela transforma um incômodo vago com aquela linha comprida em um critério objetivo, que se aplica na hora de escrever, não meses depois.
 
@@ -29,7 +29,7 @@ O nome clássico é *train wreck* — o trem descarrilando:
 
 ```ts
 // A classe que escreve isso conhece: Pedido, Cliente, Endereco e Cidade.
-const cidade = pedido.getCliente().getEndereco().getCidade().getNome();
+const cidade = pedido.cliente.endereco.cidade.nome;
 ```
 
 Uma linha, quatro tipos conhecidos, três saltos. E o preço não é estético: **qualquer mudança em qualquer um desses quatro tipos pode quebrar essa linha.** Se `Endereco` deixar de ter `Cidade` e passar a ter um `Localizacao`, quem paga é um código que nem deveria saber que `Endereco` existe.
@@ -38,11 +38,11 @@ Uma linha, quatro tipos conhecidos, três saltos. E o preço não é estético: 
 
 ## A saída: peça, não pergunte
 
-A correção quase nunca é criar um atalho `pedido.getCidadeDoCliente()`. É inverter quem faz o trabalho:
+A correção quase nunca é criar um atalho `pedido.cidadeDoCliente`. É inverter quem faz o trabalho:
 
 ```ts
 // Em vez de puxar os dados até aqui para decidir...
-if (pedido.getCliente().getEndereco().getCidade().getNome() === "São Paulo") {
+if (pedido.cliente.endereco.cidade.nome === "São Paulo") {
   frete = 0;
 }
 
@@ -72,7 +72,7 @@ A crítica mais conhecida à lei é real e vale registrar: seguida literalmente,
 
 Trocou-se um acoplamento visível por um monte de código de encanamento, e a estrutura continua lá, só que espalhada. Por isso o próprio Lieberherr sempre tratou aquilo como **heurística de estilo**, não como lei — o nome pegou melhor do que merecia.
 
-O sinal de que a delegação está errada é quando ela não tem nome de negócio: `pedido.getNomeDaCidadeDoCliente()` é o train wreck disfarçado. `pedido.temEntregaGratuita()` é a lei aplicada de verdade.
+O sinal de que a delegação está errada é quando ela não tem nome de negócio: `pedido.nomeDaCidadeDoCliente()` é o train wreck disfarçado. `pedido.temEntregaGratuita()` é a lei aplicada de verdade.
 
 ## Na prática
 
