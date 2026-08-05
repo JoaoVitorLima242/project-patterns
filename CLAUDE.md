@@ -12,7 +12,9 @@ O código existe apenas como exemplo executável ao lado de cada página, para p
 
 **O dono do repositório escreve as teses.** Não gere conteúdo teórico — a prosa explicativa das páginas é trabalho dele, deliberadamente.
 
-O que é apropriado fazer sem pedido explícito: estrutura, código dos exemplos, correções, links, consistência do mapa. O que não é: escrever as seções "O problema", "A ideia", "Quando NÃO usar" e "Trade-offs" de um tópico. Se pedirem uma página nova, confirme se querem a prosa escrita ou apenas o esqueleto e o código.
+O que é apropriado fazer sem pedido explícito: estrutura, correções, links, consistência do mapa. O que não é: escrever as seções "O problema", "A ideia", "Quando NÃO usar" e "Trade-offs" de um tópico. Se pedirem uma página nova, confirme se querem a prosa escrita ou apenas o esqueleto.
+
+**Exemplo executável só quando pedido.** Não crie `typescript/main.ts`, `python/main.py` e `java/Main.java` por conta própria ao documentar um tópico — eles são opcionais e o dono decide caso a caso se aquele tópico precisa. Entregue a página e pergunte. Quando forem pedidos, valem as três juntas.
 
 ## Comandos
 
@@ -24,7 +26,7 @@ python3 docs/patterns/<família>/<pattern>/python/main.py       # Python 3.10+
 java    docs/patterns/<família>/<pattern>/java/Main.java       # JDK 17+
 ```
 
-A verificação de um tópico é: rodar os três e conferir que a saída bate entre eles (o Java difere só na vírgula decimal, por locale pt-BR).
+A verificação de um tópico que tem exemplos é: rodar os três e conferir que a saída bate entre eles (o Java difere só na vírgula decimal, por locale pt-BR).
 
 Como os links são URLs completas do GitHub (ver adiante), o checador resolve cada uma contra o filesystem local e denuncia qualquer link relativo remanescente, que viola a convenção. Os placeholders `<seção>/<tópico>` do `templates/pattern.md` são esperados:
 
@@ -57,7 +59,7 @@ docs/
   arquitetura/     # Clean, Hexagonal, DDD tático, CQRS, frontend
 ```
 
-Cada tópico é uma pasta com `README.md` + `typescript/main.ts` + `python/main.py` + `java/Main.java`.
+Cada tópico é uma pasta com `README.md` e, quando o dono pede, os exemplos executáveis em `typescript/main.ts` + `python/main.py` + `java/Main.java`.
 
 `CONTRIBUTING.md` tem o passo a passo completo e as convenções. Leia antes de adicionar conteúdo.
 

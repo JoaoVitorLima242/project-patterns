@@ -22,9 +22,11 @@ Este documento é o passo a passo para adicionar um tópico ao repositório. Ser
 
 3. **Escreva.** As seções estão comentadas dentro do template. Comece pelo problema, sempre — a solução só faz sentido depois que a dor está clara. Apague os comentários `<!-- ... -->` conforme preencher.
 
-4. **Adicione os exemplos** nas três linguagens, em `typescript/main.ts`, `python/main.py` e `java/Main.java`.
+4. **Decida se o tópico precisa de exemplo executável.** Ele é **opcional** — só entra quando ajuda a entender o tópico. Pattern do GoF quase sempre pede; princípio muitas vezes se resolve com trechos inline na própria página. Não crie os arquivos por reflexo.
 
-5. **Rode os três** e confira que a saída faz sentido. Este passo é o motivo de os exemplos existirem como arquivos: é o que impede o repositório de publicar código que não compila.
+   Se for criar, vão nas três linguagens: `typescript/main.ts`, `python/main.py` e `java/Main.java`. Três ou nenhuma — meia dúzia de tópicos com só um `main.py` é pior que nenhum exemplo.
+
+5. **Rode os três**, se existirem, e confira que a saída faz sentido. Este passo é o motivo de os exemplos existirem como arquivos: é o que impede o repositório de publicar código que não compila.
 
 6. **Atualize o mapa** no [README.md](https://github.com/JoaoVitorLima242/project-patterns/blob/main/README.md): troque o `🔜` por `✅` e transforme o nome do tópico em link.
 
@@ -67,6 +69,8 @@ Use blocos ` ```mermaid `. O GitHub renderiza nativamente, então o diagrama viv
 
 ### Código
 
+Quando o tópico tiver exemplo executável (ver o passo 4 — é opcional):
+
 - **Um arquivo por linguagem, autocontido**, com uma demonstração que imprime resultado ao rodar.
 - **Zero dependências externas.** Só a biblioteca padrão. Quem clona não instala nada.
 - **O mesmo cenário nas três linguagens** — facilita comparar as abordagens.
@@ -88,7 +92,7 @@ Na prática é uma limitação leve, e mantém o código mais próximo de JS —
 
 ### Trecho inline vs. arquivo completo
 
-A página mostra o **núcleo do pattern inline** (~20–30 linhas) e linka o arquivo executável no fim de cada bloco. O leitor entende o pattern sem sair do GitHub; quem quiser rodar clica no link.
+Vale para os tópicos que têm arquivo executável. A página mostra o **núcleo do pattern inline** (~20–30 linhas) e linka o arquivo executável no fim de cada bloco. O leitor entende o pattern sem sair do GitHub; quem quiser rodar clica no link.
 
 Deixe fora do trecho inline: imports, setup, `main`, prints e as Concrete Strategies repetitivas (uma basta para mostrar o padrão). Quanto menor o trecho, menor a chance de ele divergir do arquivo com o tempo — essa duplicação é o custo aceito do formato.
 
