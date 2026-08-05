@@ -32,7 +32,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | [**Composição vs. Herança**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/composition-vs-inheritance) | ✅ | A decisão de estrutura mais consequente do dia a dia |
 | [**Acoplamento e Coesão**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/coupling-and-cohesion) | ✅ | O vocabulário para dizer *por que* um design está ruim |
 | [**DRY, KISS, YAGNI**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dry-kiss-yagni) | ✅ | Os três que mais se aplicam errado |
-| Lei de Demeter | 🚧 | Quanto um objeto deve saber sobre os vizinhos dos vizinhos |
+| [**Lei de Demeter**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/law-of-demeter) | ✅ | Quanto um objeto deve saber sobre os vizinhos dos vizinhos |
 
 ### Design Patterns — Criacionais
 
