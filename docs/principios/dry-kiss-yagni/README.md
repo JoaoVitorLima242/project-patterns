@@ -55,25 +55,26 @@ Vale a fronteira que o próprio XP marca: YAGNI vale para **funcionalidade espec
 
 ## Na prática
 
-<!-- SUA OPINIÃO — a seção que carrega a página, e a que vamos desenvolver na
-     conversa. O material que já saiu até aqui e ainda precisa de você:
+Os três são simples e práticos, e é isso que os torna bons: não exigem cerimônia nenhuma para serem aplicados. **Eles trabalham juntos**, mirando o mesmo lugar — código mais simples e mais fácil de manter.
 
-     - DRY: quando você vê o mesmo código em dois lugares, o que faz você
-       extrair ou deixar duplicado? Regra de bolso ou caso a caso?
-     - KISS: onde ele vira argumento errado ("não estruturo porque é mais
-       simples")? Qual é o seu teste de que algo está simples?
-     - YAGNI: onde fica a linha entre "não vai precisar" e "isso é estrutura
-       básica que eu vou querer ter"?
-     - Os três juntos: DRY empurra para abstrair, KISS e YAGNI puxam para
-       trás. Como você resolve essa tensão? -->
+Mas cada um chega lá por um caminho próprio, e é aí que a distinção importa.
+
+**O KISS cuida da forma.** O foco é deixar a lógica, a implementação e a infraestrutura o mais simples possível. Repare que não é só o código: a infraestrutura entra na conta, porque ela é tão capaz de complicar a manutenção quanto uma classe mal escrita. Quanto mais simples o conjunto, mais barato mexer nele depois.
+
+**O DRY cuida da lógica repetida.** O propósito é evitar a mesma lógica em lugares diferentes. Quando ela se repete, o caminho é extrair um método e passar a chamá-lo — para a lógica existir em um lugar só, e a mudança acontecer em um lugar só.
+
+**O YAGNI cuida do julgamento — e é o mais valioso dos três.** É também o que mostra quem é o desenvolvedor mais sênior, porque exige conhecimento para dizer se algo é realmente necessário agora ou não. Esse julgamento vale muito, e o motivo é o preço do erro: **uma arquitetura errada cobra duas vezes** — no custo de mudar e no custo de manter até que se mude.
+
+Por isso os três não competem entre si. O KISS mantém a forma simples, o DRY mantém a lógica em um lugar, o YAGNI decide o que sequer deveria existir. Aplicados juntos, empurram o código para o mesmo destino.
 
 ## Trade-offs
 
-<!-- Preencher junto com a seção acima — sai naturalmente dela. -->
-
 | Ganha | Paga |
 | --- | --- |
-|  |  |
+| Código mais simples e mais barato de manter, sem cerimônia para adotar | Nenhum dos três é regra automática: os três dependem de julgamento na hora |
+| Uma decisão de negócio vive em um lugar só, e muda em um lugar só | Extrair cedo demais junta o que só era parecido, e o custo aparece meses depois |
+| Não se paga por arquitetura que talvez nunca sirva | Decidir o que é necessário agora exige senioridade — e errar cobra em mudança e em manutenção |
+| A infraestrutura entra na conta da simplicidade, não só o código | Simplicidade mal entendida vira ausência de estrutura, que também custa manutenção |
 
 ## Princípios relacionados
 
