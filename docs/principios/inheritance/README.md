@@ -104,21 +104,15 @@ Projetar para herança significa decidir e escrever quais métodos podem ser sob
 
 O caminho do meio — uma classe comum, herdável por acidente, com métodos que se chamam entre si — é onde o problema nasce. Por isso o padrão sensato é o inverso do costume: **fechar por padrão** (`final`, `sealed`, ou só não expor a classe) e abrir quando houver um motivo.
 
-## Na prática
-
-<!-- SUA OPINIÃO — a seção que carrega a página, desenvolvida na conversa.
-     Perguntas que destravam:
-
-     - Você usa herança hoje? Onde ela ainda aparece no seu trabalho — no
-       domínio, em classe base de caso de uso, em algo que o framework pede?
-     - Já pegou um caso de fragile base class na prática, ou o problema para
-       você é mais o custo de leitura da hierarquia?
-     - Em TS/JS, com type em vez de classe, sobra algum lugar onde herdar
-       ainda ganha da composição? -->
-
 ## Conclusão
 
-<!-- Preencher junto com a seção acima. -->
+Herança é fundamento, e é por isso que vale entendê-la mesmo em código que quase não a usa. O despacho dinâmico — a chamada resolvida pelo objeto, em tempo de execução — é o mecanismo que sustenta o polimorfismo, e é o que faz metade do catálogo de patterns funcionar. Quem entende isso não está aprendendo uma sintaxe, está aprendendo como a orientação a objetos funciona por dentro.
+
+O detalhe que amarra a página é que **o mesmo mecanismo que dá o poder é o que produz a fragilidade**. Porque a chamada é resolvida no objeto, a base pode acabar executando código da subclasse sem saber — daí a fragile base class, daí o custo de ler uma hierarquia profunda, daí o cuidado com estado `protected`. Não são defeitos avulsos de uma ferramenta mal feita: são o outro lado da mesma propriedade.
+
+Daí a diferença entre os dois usos que existem desde o Simula: herdar para **expressar categoria** é usar a ferramenta para o que ela foi feita; herdar para **economizar digitação** é pegar o acoplamento sem precisar dele. O primeiro caso se sustenta quando a relação "é um" é verdadeira, a base foi projetada para ser estendida e isso está documentado.
+
+Na dúvida, o padrão sensato é o inverso do costume: **fechado por padrão, aberto por decisão** — e a decisão de compor, quando existe, quase sempre é a mais barata de desfazer.
 
 ## Princípios relacionados
 
