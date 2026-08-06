@@ -33,6 +33,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | [**Encapsulamento**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/encapsulation) | ✅ | Esconder o que pode mudar — e por que get/set para tudo não é isso |
 | [**Herança**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/inheritance) | ✅ | Quando herdar é a escolha certa — e onde a hierarquia cobra |
 | [**Polimorfismo**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/polymorphism) | ✅ | Uma chamada, várias respostas — e por que não precisa de herança |
+| Modelo anêmico vs. rico | 🔜 | Onde a regra de negócio mora: dentro do objeto ou no serviço |
 | [**Acoplamento e Coesão**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/coupling-and-cohesion) | ✅ | O vocabulário para dizer *por que* um design está ruim |
 | [**DRY, KISS, YAGNI**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dry-kiss-yagni) | ✅ | Os três que mais se aplicam errado |
 | [**Lei de Demeter**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/law-of-demeter) | ✅ | Quanto um objeto deve saber sobre os vizinhos dos vizinhos |
