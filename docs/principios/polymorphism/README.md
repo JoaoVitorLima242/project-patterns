@@ -6,7 +6,23 @@ Uma mesma chamada, comportamentos diferentes — decididos pelo tipo do dado, n�
 
 Polimorfismo é o pilar da orientação a objetos que faz os outros valerem a pena. Encapsulamento esconde estado, [herança](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/inheritance) organiza categoria, abstração define contrato — mas é o polimorfismo que transforma isso em código que não precisa ser reescrito a cada caso novo.
 
-E ele é maior do que a versão que costuma ser ensinada. "Classe base e subclasses sobrescrevendo métodos" é **um** tipo de polimorfismo, não o conceito inteiro. Vale conhecer os outros, porque os mais úteis no dia a dia de TypeScript não passam por herança nenhuma.
+## O que é
+
+A palavra vem do grego: *poly* (muitas) + *morphé* (formas). **Muitas formas** — no caso, muitas formas de responder à mesma chamada.
+
+Concretamente: polimorfismo é a capacidade de uma mesma operação se comportar de maneira diferente conforme o tipo do dado sobre o qual ela opera. Quem chama escreve uma linha só; qual código roda depende de quem está do outro lado.
+
+Isso já acontece o tempo todo, mesmo em código que ninguém chamaria de orientado a objetos. `console.log` aceita string, número, objeto ou array e sabe imprimir cada um. `array.sort(comparador)` ordena de qualquer jeito, porque o critério vem de fora. `+` soma números e concatena strings. Em todos os casos, **a chamada é uma; o comportamento, vários**.
+
+### Para que serve
+
+O propósito é separar duas coisas que costumam vir grudadas: **o que se quer fazer** e **como cada tipo faz**.
+
+Sem essa separação, quem chama precisa conhecer todas as variações que existem — e passa a ser editado sempre que aparece uma nova. É o `if` que cresce, o `switch` com um `case` por tipo, o `instanceof` no meio da regra de negócio. O código que decide fica preso ao número de casos.
+
+Com polimorfismo, quem chama depende só do que é **comum** — a operação — e cada tipo carrega a própria versão do **como**. Adicionar uma variação passa a ser escrever código novo em vez de alterar código que já funciona, e é daí que vem tudo o que se ganha: menos condicional, menos acoplamento entre quem usa e quem implementa, e extensão sem risco de quebrar o que estava certo.
+
+Vale reforçar um ponto que a formação clássica costuma deixar de fora: nada disso exige herança. "Classe base e subclasses sobrescrevendo métodos" é **um** tipo de polimorfismo, não o conceito inteiro — e, no dia a dia de TypeScript, raramente é o mais útil.
 
 ## Os quatro tipos
 
