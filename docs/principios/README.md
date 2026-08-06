@@ -10,6 +10,7 @@ Quase todo pattern do catálogo GoF é a aplicação concreta de um destes princ
 
 - **SOLID** — os cinco princípios de projeto orientado a objetos, um por página.
 - **Composição vs. Herança** — a decisão de estrutura mais consequente do dia a dia.
+- **Encapsulamento, Herança e Polimorfismo** — três dos pilares da orientação a objetos, um por página: o que cada um é, como funciona por dentro e o que cobra.
 - **Acoplamento e Coesão** — o vocabulário para dizer *por que* um design está ruim.
 - **DRY, KISS, YAGNI** — os três que mais se aplicam errado, cada um com sua armadilha.
 - **Lei de Demeter** — quanto um objeto deve saber sobre os vizinhos dos vizinhos.
