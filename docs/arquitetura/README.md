@@ -11,6 +11,7 @@ Vale notar que a fronteira entre as seções é porosa: Repository é um pattern
 - **Arquitetura em camadas** — o ponto de partida, e por onde ela falha.
 - **Clean Architecture** e **Hexagonal (Ports & Adapters)** — as duas respostas mais conhecidas à mesma pergunta sobre direção de dependências.
 - **DDD tático** — Entity, Value Object, Aggregate, Repository, Domain Service.
+- **Modelo anêmico vs. rico** — onde a regra de negócio mora: dentro do objeto ou no serviço.
 - **CQRS** e **Event-Driven** — separar leitura de escrita, comunicar por eventos, e o preço de cada um.
 - **Patterns de frontend** — Container/Presenter, Custom Hooks, State Machine na UI.
 
