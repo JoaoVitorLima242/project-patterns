@@ -30,7 +30,8 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | [**Interface Segregation (ISP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/isp) | ✅ | Interface pequena e específica em vez de uma que serve a todos |
 | [**Dependency Inversion (DIP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dip) | ✅ | Depender de abstrações, não de implementações |
 | [**Composição vs. Herança**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/composition-vs-inheritance) | ✅ | A decisão de estrutura mais consequente do dia a dia |
-| Herança | 🔜 | Quando herdar é a escolha certa — e onde a hierarquia cobra |
+| [**Herança**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/inheritance) | ✅ | Quando herdar é a escolha certa — e onde a hierarquia cobra |
+| [**Polimorfismo**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/polymorphism) | ✅ | Uma chamada, várias respostas — e por que não precisa de herança |
 | [**Acoplamento e Coesão**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/coupling-and-cohesion) | ✅ | O vocabulário para dizer *por que* um design está ruim |
 | [**DRY, KISS, YAGNI**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dry-kiss-yagni) | ✅ | Os três que mais se aplicam errado |
 | [**Lei de Demeter**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/law-of-demeter) | ✅ | Quanto um objeto deve saber sobre os vizinhos dos vizinhos |

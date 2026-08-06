@@ -1,7 +1,6 @@
 # Herança
 
-<!-- A frase de abertura, no seu jeito de dizer. Uma linha: o que a herança é,
-     ou o que ela cobra. -->
+O mecanismo que faz a orientação a objetos funcionar por dentro — e que cobra caro quando é usado para economizar digitação.
 
 ---
 
