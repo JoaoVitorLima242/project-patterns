@@ -33,7 +33,6 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | [**Interface Segregation (ISP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/isp) | ✅ | Interface pequena e específica em vez de uma que serve a todos |
 | [**Dependency Inversion (DIP)**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dip) | ✅ | Depender de abstrações, não de implementações |
 | [**Composição vs. Herança**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/composition-vs-inheritance) | ✅ | A decisão de estrutura mais consequente do dia a dia |
-| Modelo anêmico vs. rico | 🔜 | Onde a regra de negócio mora: dentro do objeto ou no serviço |
 | [**Acoplamento e Coesão**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/coupling-and-cohesion) | ✅ | O vocabulário para dizer *por que* um design está ruim |
 | [**DRY, KISS, YAGNI**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dry-kiss-yagni) | ✅ | Os três que mais se aplicam errado |
 | [**Lei de Demeter**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/law-of-demeter) | ✅ | Quanto um objeto deve saber sobre os vizinhos dos vizinhos |
@@ -90,6 +89,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | Clean Architecture | 🔜 | Dependências apontam para dentro, rumo ao domínio |
 | Hexagonal (Ports & Adapters) | 🔜 | O domínio no centro, infraestrutura plugada na borda |
 | DDD tático | 🔜 | Entity, Value Object, Aggregate, Repository |
+| Modelo anêmico vs. rico | 🔜 | Onde a regra de negócio mora: dentro do objeto ou no serviço |
 | CQRS | 🔜 | Separar o caminho de leitura do de escrita |
 | Event-Driven | 🔜 | Componentes conversam por eventos, não por chamadas |
 | Container / Presenter | 🔜 | Separar busca de dados de apresentação na UI |
