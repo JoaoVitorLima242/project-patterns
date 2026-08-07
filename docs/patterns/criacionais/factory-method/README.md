@@ -235,17 +235,6 @@ Os dois estão certos. O segundo é o que Python pede.
 
 </details>
 
-## Onde ele aparece de verdade
-
-Não existe artigo do tipo "o Factory Method salvou nosso sistema". Isso não é falta de sorte na busca: o pattern vive em código de framework e biblioteca, então a evidência está no fonte deles, não em blog de engenharia.
-
-- **`Collection.iterator()` (Java)** — o melhor exemplo que existe, porque todo mundo usa todo dia sem saber. `ArrayList` devolve um iterador que anda em array, `HashSet` devolve um que anda em tabela hash, e o `for-each` nunca sabe qual chegou. Creator = a coleção, Product = o `Iterator`.
-- **`logging.Handler.createLock()` (Python)** — o mais curto, e o único que dá para rodar agora.
-- **`IDbCommand.CreateParameter` (ADO.NET)** — hierarquias paralelas em estado puro: `SqlCommand` cria `SqlParameter`, `OracleCommand` cria `OracleParameter`. O autor da classe base não podia conhecer drivers que ainda seriam escritos.
-- **`QMainWindow::createPopupMenu()` (Qt)** — método virtual do framework, sobrescrito na aplicação. O Qt sabe *quando* abrir o menu; só você sabe *o que* tem nele.
-
-E um que **não** conta, apesar de aparecer em toda lista da internet: `DocumentBuilderFactory.newInstance()`. É método estático resolvido por *service loader*, sem criador com subclasse. É Simple Factory com nome pomposo.
-
 ## Quando usar
 
 - **Você escreve a classe base e não pode conhecer as subclasses.** Biblioteca, framework, sistema de plugins. É o único caso em que o Factory Method é a *única* saída, porque nenhum `switch` funciona sobre classes que ainda não existem.
