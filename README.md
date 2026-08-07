@@ -43,7 +43,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 
 | Pattern | Status | Ideia central |
 | --- | :---: | --- |
-| Factory Method | 🔜 | Subclasses decidem qual objeto instanciar |
+| [**Factory Method**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns/criacionais/factory-method) | ✅ | Subclasses decidem qual objeto instanciar |
 | Abstract Factory | 🔜 | Cria famílias de objetos relacionados sem citar classes concretas |
 | Builder | 🔜 | Monta objetos complexos passo a passo |
 | Prototype | 🔜 | Cria novos objetos clonando um existente |
