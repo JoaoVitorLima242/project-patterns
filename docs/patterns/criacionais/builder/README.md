@@ -2,9 +2,6 @@
 
 Monta um objeto em etapas — e, na versão original, separa quem descreve **o que** construir de quem decide **qual formato** sai no fim.
 
-> [!WARNING]
-> Duas coisas diferentes se chamam Builder: a do *Gang of Four* e a do *Effective Java*. Elas resolvem problemas distintos, têm estruturas distintas, e só uma delas some quando a linguagem tem argumento nomeado. Confundir as duas é o motivo de este pattern nunca fechar na cabeça de quem estuda — a seção [Os dois Builders](#os-dois-builders) separa uma da outra.
-
 ---
 
 ## O problema
