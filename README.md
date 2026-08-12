@@ -45,7 +45,7 @@ A ideia não é ser mais um catálogo com a definição formal de cada pattern (
 | --- | :---: | --- |
 | [**Factory Method**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns/criacionais/factory-method) | ✅ | Subclasses decidem qual objeto instanciar |
 | [**Abstract Factory**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns/criacionais/abstract-factory) | ✅ | Cria famílias de objetos relacionados sem citar classes concretas |
-| Builder | 🔜 | Monta objetos complexos passo a passo |
+| [**Builder**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns/criacionais/builder) | ✅ | Monta objetos complexos passo a passo |
 | Prototype | 🔜 | Cria novos objetos clonando um existente |
 | Singleton | 🔜 | Uma única instância global — e por que costuma ser má ideia |
 
