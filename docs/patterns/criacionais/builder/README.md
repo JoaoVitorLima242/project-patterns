@@ -30,33 +30,53 @@ Mas repare que há **duas dores diferentes** amontoadas nessa linha, e é aí qu
 1. **Parâmetros demais.** Opcionais, do mesmo tipo, sem nome. É um problema de legibilidade e de segurança na chamada.
 2. **O `20` não é de todo mundo.** Margem só existe em PDF. Sumário só existe em docx. O mesmo conteúdo precisa sair como quatro coisas diferentes, e cada uma tem opções que as outras não têm.
 
-A primeira dor é a que quase todo texto sobre Builder trata. A segunda é a que o GoF escreveu o pattern para resolver.
+Guarde essas duas dores separadas. Elas chegam juntas e parecem a mesma coisa, mas não são — e a próxima seção existe porque cada uma delas ganhou uma solução própria, com o mesmo nome.
 
 ## Os dois Builders
 
-| | **Builder do GoF** (1994) | **Builder do *Effective Java*** (Item 2) |
-| --- | --- | --- |
-| Intenção | Mesmo processo de construção → **representações diferentes** | Construtor com **parâmetros demais** |
-| Director | Sim — é dono do algoritmo de percurso | Não existe |
-| Produtos | Vários, de tipos diferentes | Um só |
-| Motivo de existir | Estrutural | Falta de argumento nomeado/opcional na linguagem |
-| Some em Python/Kotlin/F#? | Não | **Sim** |
+As duas dores acima foram resolvidas por pessoas diferentes, com vinte anos de distância — e **as duas soluções se chamam Builder**. Não são duas implementações do mesmo pattern: são desenhos diferentes, para problemas diferentes, que herdaram o mesmo nome.
 
-A definição original não deixa dúvida sobre qual dos dois problemas ela ataca:
+Enquanto isso não estiver separado, nada do resto encaixa. Então vamos aos dois.
+
+### O primeiro: o Builder do GoF (1994)
+
+Ele resolve a **segunda** dor — o mesmo conteúdo saindo em formatos diferentes. A definição original diz exatamente isso:
 
 > *"Separar a construção de um objeto complexo da sua representação, de modo que **o mesmo processo de construção** possa criar **representações diferentes**."* — GoF, p. 97
 
-E os dois exemplos do livro são coerentes com isso. O principal é um conversor de RTF: um `RTFReader` percorre o documento **uma vez**, emitindo eventos — "token de texto", "mudança de fonte", "parágrafo". Quem responde é um `TextConverter`, e aí está a variação: o `ASCIIConverter` ignora formatação, o `TeXConverter` gera TeX, o `TextWidgetConverter` monta um widget de interface. Mesmo percurso, três representações.
+O exemplo do livro é um conversor de RTF. Um `RTFReader` percorre o documento **uma vez**, emitindo eventos: "token de texto", "mudança de fonte", "parágrafo". Quem responde a esses eventos é um `TextConverter` — e é aí que está a variação:
 
-O Builder do *Effective Java* não faz nada disso. Ele resolve o construtor telescópico, e a recomendação do Bloch é explícita: use builder *"quando construtores ou static factories teriam mais que um punhado de parâmetros, especialmente se muitos forem opcionais ou do mesmo tipo"*. Nenhum Director, um produto só, nenhuma representação alternativa.
+| Recebe os mesmos eventos | E produz |
+| --- | --- |
+| `ASCIIConverter` | texto puro, ignorando formatação |
+| `TeXConverter` | um arquivo TeX |
+| `TextWidgetConverter` | um widget de interface |
 
-Brandon Rhodes dá o critério que separa os dois em uma linha, e é o mais útil que existe sobre o assunto:
+Um percurso, três representações. O leitor de RTF não sabe qual delas está sendo montada, e é esse o ponto do pattern.
 
-> **O Builder do GoF devolve o objeto construído. O builder de conveniência muitas vezes não devolve nada.**
+### O segundo: o Builder do *Effective Java* (Item 2)
 
-E ele completa: quando o builder não devolve nada, ele deixou de ser Builder e virou **Facade**. O exemplo é o `pyplot` do matplotlib — `plt.plot()` cria uma dúzia de objetos por dentro e não te entrega nenhum. É conveniência, não construção.
+Ele resolve a **primeira** dor — o construtor com parâmetros demais. A recomendação do Bloch é explícita: use builder *"quando construtores ou static factories teriam mais que um punhado de parâmetros, especialmente se muitos forem opcionais ou do mesmo tipo"*.
 
-Rhodes chama a versão do Bloch de **degenerate builder**: uma classe imutável emparelhada com um builder mutável, para suprir a falta de parâmetro opcional. Em Python, desnecessário.
+É outro desenho por inteiro. Não há percurso, não há Director, e não há representação alternativa: **um produto só**, montado por chamadas encadeadas, entregue imutável no `build()`. Tudo que ele faz é dar nome aos argumentos e permitir omitir os opcionais.
+
+### Por que isso importa aqui
+
+Três consequências práticas, e a terceira é o motivo desta página existir assim:
+
+- **Quase todo texto que ensina "Builder" ensina o segundo.** Se você foi ao GoF procurar o que viu num tutorial, não achou — e concluiu que não entendeu o pattern. O problema era o nome.
+- **O segundo é uma cicatriz de linguagem.** Ele existe porque Java não tem argumento nomeado nem valor padrão. Em Python, Kotlin ou C#, ele não tem o que resolver. O primeiro não some em linguagem nenhuma, porque o problema dele é estrutural.
+- **O nosso `Document` tem as duas dores ao mesmo tempo.** Título e conteúdo obrigatórios, margem opcional, e quatro formatos de saída. Por isso o exemplo desta página usa os dois desenhos juntos: a porta de entrada com os obrigatórios vem do Bloch, e a escolha do renderizador no fim vem do GoF.
+
+Resumindo a diferença:
+
+| | **Builder do GoF** (1994) | **Builder do *Effective Java*** (Item 2) |
+| --- | --- | --- |
+| Qual dor resolve | Representações diferentes | Parâmetros demais |
+| Director | Sim — é dono do percurso | Não existe |
+| Produtos | Vários, de tipos diferentes | Um só |
+| Por que existe | Razão estrutural | Falta de argumento nomeado na linguagem |
+| Some em Python/Kotlin/C#? | Não | **Sim** |
 
 ## A ideia
 
