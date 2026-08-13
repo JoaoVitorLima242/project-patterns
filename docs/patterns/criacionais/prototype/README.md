@@ -142,7 +142,9 @@ classDiagram
      no RASCUNHO §6 ("Como aplicar de verdade").
 
      ❓ Os arquivos executáveis ainda não foram decididos (RASCUNHO §14.6).
-     Se não forem criados, apagar os links "Exemplo completo" abaixo. -->
+     Por enquanto a página vive só com os trechos inline. Se forem criados,
+     volta a linha "▸ Exemplo completo e executável" em cada <details>, com
+     URL completa do GitHub — e valem as três linguagens, três ou nenhuma. -->
 
 <details>
 <summary><b>TypeScript</b></summary>
@@ -152,8 +154,6 @@ classDiagram
 // e é o único. Mostrar também `Imagem`, que COMPARTILHA o arquivoId em vez
 // de copiar o binário: a decisão de domínio escrita onde quem mexe vai olhar.
 ```
-
-▸ [Exemplo completo e executável](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/patterns/criacionais/prototype/typescript/main.ts)
 
 </details>
 
@@ -165,8 +165,6 @@ classDiagram
 # `autor: Usuario` junto. O ponto: a decisão campo a campo não é automatizável.
 ```
 
-▸ [Exemplo completo e executável](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/patterns/criacionais/prototype/python/main.py)
-
 </details>
 
 <details>
@@ -175,8 +173,6 @@ classDiagram
 ```java
 // O construtor de cópia, não `Cloneable`. Ver a seção abaixo.
 ```
-
-▸ [Exemplo completo e executável](https://github.com/JoaoVitorLima242/project-patterns/blob/main/docs/patterns/criacionais/prototype/java/Main.java)
 
 </details>
 
