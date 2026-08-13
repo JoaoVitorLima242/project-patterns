@@ -377,7 +377,7 @@ E há um custo que aparece no próprio exemplo desta página: **o `Buffer` achat
 - [**Factory Method**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns/criacionais/factory-method) — a porta de entrada estática (`Document.from`) é o *static factory method* do Item 1 do Bloch a serviço do Item 2. São coisas diferentes que se encaixam.
 - **Composite** — a representação intermediária costuma ser um: um documento é uma árvore de blocos, e cada bloco pode conter outros.
 - **Facade** — o vizinho perigoso. Builder que não devolve o objeto construído já virou Facade, mesmo que o nome da classe diga outra coisa.
-- **Prototype** — clonar um objeto pronto e ajustar × montar do zero passo a passo. Quando as variações são pequenas sobre uma base comum, clonar costuma custar menos.
+- [**Prototype**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/patterns/criacionais/prototype) — clonar um objeto pronto e ajustar × montar do zero passo a passo. Quando as variações são pequenas sobre uma base comum, clonar costuma custar menos.
 - [**Encapsulamento**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/encapsulation) — metade do motivo de o builder existir: manter o produto imutável e nunca deixá-lo visível pela metade.
 - [**DRY, KISS, YAGNI**](https://github.com/JoaoVitorLima242/project-patterns/tree/main/docs/principios/dry-kiss-yagni) — a régua contra a cerimônia. Builder para três campos obrigatórios é o exemplo canônico de complicar sem comprar nada.
 
